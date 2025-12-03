@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class RegraTemperatura {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Digite a temperatura medida. ");
+        double temperatura = entrada.nextDouble();
+        if (temperatura > 38.0) {
+            System.out.println("Aparentemente você está febril. Cuide-se.");
+        } else {
+            System.out.println("Temperatura dentro do esperado.");
+        }
+    }
+}
+
