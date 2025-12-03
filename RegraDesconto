@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class RegraDesconto {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Informe o valor da compra: ");
+        double valor = entrada.nextDouble();
+        if (valor > 100) {
+            System.out.println("Desconto aplicado: 10%.");
+        } else {
+            System.out.println("Sem desconto desta vez.");
+        }
+    }
+}
