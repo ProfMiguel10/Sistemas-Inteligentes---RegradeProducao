@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class RegraEstoque {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Quantos itens há no estoque? ");
+        int quantidade = entrada.nextInt();
+        if (quantidade < 50) {
+            System.out.println("Estoque baixo. Talvez seja hora de repor.");
+        } else {
+            System.out.println("Estoque estável.");
+        }
+    }
+}
