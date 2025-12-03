@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class RegraAcesso {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.print("Você é administrador? (sim/nao): ");
+        String resposta = entrada.next().trim().toLowerCase();
+        if (resposta.equals("sim")) {
+            System.out.println("Acesso ao painel administrativo liberado.");
+        } else {
+            System.out.println("Acesso restrito. Área protegida.");
+        }
+    }
+}
