@@ -1,0 +1,38 @@
+package imc;
+public class IMC {
+	// ----- REGRAS DE PRODUÇÃO -----
+	public static String regraIMC(double imc) {
+		if (imc < 18.5) {
+			return "baixo_peso";
+		} else if (imc < 25) {
+			return "peso_normal";
+		} else if (imc < 30) {
+			return "sobrepeso";
+		} else {
+			return "obesidade";
+		}
+	}
+	// ----- MOTOR DE INFERÊNCIA (FORWARD CHAINING) -----
+	public static String forwardChaining(double peso, double altura) {
+		double imc = peso / (altura * altura);
+		String categoria = regraIMC(imc);
+		return """
+				Fatos:
+				- Peso: %.2f
+				- Altura: %.2f
+				- IMC calculado: %.2f
+				Regra ativada: %s
+				Conclusão: O usuário está em: %s
+				""".formatted(peso, altura, imc, categoria, categoria.toUpperCase());
+	}
+	// ----- MOTOR DE INFERÊNCIA (BACKWARD CHAINING) -----
+	public static boolean backwardChaining(String hipotese, double imc) {
+		return switch (hipotese) {
+		case "baixo_peso" -> imc < 18.5;
+		case "peso_normal" -> imc >= 18.5 && imc < 25;
+		case "sobrepeso" -> imc >= 25 && imc < 30;
+		case "obesidade" -> imc >= 30;
+		default -> false;
+		};
+	}
+}
