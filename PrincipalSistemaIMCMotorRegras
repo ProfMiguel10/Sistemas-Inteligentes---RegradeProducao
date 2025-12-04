@@ -1,0 +1,27 @@
+package imc;
+
+import java.util.Scanner;
+
+public class Principal {
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Digite seu peso (kg): ");
+		double peso = sc.nextDouble();
+		System.out.print("Digite sua altura (m): ");
+		double altura = sc.nextDouble();
+
+		double imc = peso / (altura * altura);
+		System.out.println("[Forward Chaining]");
+		System.out.println("\n" + IMC.forwardChaining(peso, altura));
+
+		System.out.println("[Backward Chaining]");
+		String[] hipoteses = { "baixo_peso", "peso_normal", "sobrepeso", "obesidade" };
+
+		for (String h : hipoteses) {
+			boolean resultado = IMC.backwardChaining(h, imc);
+			System.out.println("A hipótese \"" + h + "\" é verdadeira? " + resultado);
+		}
+		sc.close();
+	}
+}
